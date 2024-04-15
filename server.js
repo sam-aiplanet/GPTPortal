@@ -7,6 +7,7 @@ const axios = require('axios');
 const basicAuth = require('express-basic-auth');
 const fs = require('fs');
 const { marked } = require('marked');
+const gTTS = require('gtts');
 const app = express();
 const bodyParser = require('body-parser');
 // Increase the limit for JSON bodies
@@ -141,15 +142,18 @@ app.post('/tts', async (req, res) => {
     const { text } = req.body;
 
     // Call the OpenAI TTS API
-    const ttsResponse = await axios.post(
-      'https://api.openai.com/v1/audio/speech',
-      { model: "tts-1-hd", voice: "echo", input: text },
-      { headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}` }, responseType: 'arraybuffer' }
-    );
+    const gtts = new gTTS(text, "en");
+    gtts.stream().pipe(res);
 
-    // Send the audio file back to the client
-    res.set('Content-Type', 'audio/mpeg');
-    res.send(ttsResponse.data);
+    // const ttsResponse = await axios.post(
+    //   'https://api.openai.com/v1/audio/speech',
+    //   { model: "tts-1-hd", voice: "echo", input: text },
+    //   { headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}` }, responseType: 'arraybuffer' }
+    // );
+
+    // // Send the audio file back to the client
+    // res.set('Content-Type', 'audio/mpeg');
+    // res.send(ttsResponse.data);
   } catch (error) {
     console.error('Error generating speech:', error.message);
     res.status(500).json({ error: "Error generating speech", details: error.message });

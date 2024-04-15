@@ -20,6 +20,7 @@
     "express": "^4.19.2",
     "express-basic-auth": "^1.2.1",
     "fs": "^0.0.1-security",
+    "gtts": "^0.2.1",
     "image-downloader": "^4.3.0",
     "langchain": "^0.1.33",
     "marked": "^12.0.1",
