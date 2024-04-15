@@ -660,12 +660,32 @@ function exportChatOnShutdown() {
     
       function toggleVoiceMode() {
         voiceMode = !voiceMode;
+        
+        // const voiceIndicator = document.getElementById('voice-indicator');
+        const micIcon = document.getElementById('mic-icon');
+        const stopIcon = document.getElementById('stop-icon');
+
+        // if (voiceMode) {
+        //   voiceIndicator.textContent = 'Voice Mode ON';
+        //   voiceIndicator.style.display = 'block';
+        //   micIcon.style.display = 'none';
+        //   stopIcon.style.display = 'block';
+        // } else {
+        //     voiceIndicator.style.display = 'none';
+        //     micIcon.style.display = 'block';
+        //     stopIcon.style.display = 'none';
+        // }
+  
         const voiceIndicator = document.getElementById('voice-indicator');
         if (voiceMode) {
           voiceIndicator.textContent = 'Voice Mode ON';
           voiceIndicator.style.display = 'block';
+          micIcon.style.display = 'none';
+          stopIcon.style.display = 'block';
         } else {
           voiceIndicator.style.display = 'none';
+          micIcon.style.display = 'block';
+          stopIcon.style.display = 'none';
         }
       }
     

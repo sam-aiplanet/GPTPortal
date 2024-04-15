@@ -51,7 +51,10 @@
     <button type="button" id="clipboard-button">📋</button>
     <input type="file" id="file-input" accept="*/*"/>
     <button type="button" id="export-button">📤</button>
-    <button type="button" id="voice-button">🎤</button>
+    <button type="button" id="voice-button">
+      <img id="mic-icon" src="mic.png" alt="Microphone" style="display:block;max-width:25px;max-height:25px">
+      <img id="stop-icon" src="stop-button.png" alt="Stop" style="display:none;max-width:25px;max-height:25px">
+    </button>
     <div id="voice-indicator">Voice Mode ON</div>
     <button id="send-button">Send</button>
     <div class="custom-select" id="mode-selector">Assistants Mode</div>
