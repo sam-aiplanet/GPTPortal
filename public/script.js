@@ -496,7 +496,7 @@ document.getElementById('model-claude-1.2').addEventListener('mouseover', (event
       const chatBox = document.getElementById('chat-box');
       const voiceButton = document.getElementById('voice-button');
       voiceButton.addEventListener('click', voice);
-      document.getElementById('export-button').addEventListener('click', exportChatHistory);
+      // document.getElementById('export-button').addEventListener('click', exportChatHistory);
       
       // Existing event listener for messageInput keypress
       messageInput.addEventListener('keypress', function(e) {
